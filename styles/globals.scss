@@ -1,0 +1,67 @@
+@use './header.styles.scss';
+@use './footer.styles.scss';
+@use './home.styles.scss';
+@use './chants.styles.scss';
+@use './vp.styles.scss';
+@use './about.styles.scss';
+@use './faq.styles.scss';
+@import url("https://fonts.googleapis.com/css2?family=Chivo:wght@300;400;700&display=swap");
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Chivo", sans-serif;
+  font-weight: 300;
+  background: #f2f4f3;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+.header {
+  margin-bottom: 20px;
+  padding: 10px 0px;
+  font-weight: 400;
+}
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 800;
+}
+
+.clearTop {
+  padding-top: 73px;
+  position: relative;
+}
+
+.btn-light {
+  background: #f2f4f3;
+  color: #00245d;
+  border-color: #f6f8f7;
+  text-transform: uppercase;
+}
+.btn-dark {
+  color: #f2f4f3;
+  background-color: #00245d;
+  border-color: #003790;
+  text-transform: uppercase;
+}
+.hero {
+  z-index: 10;
+}
+.tint {
+  background: rgba(0, 36, 93, 0.5);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+}

@@ -1,65 +1,124 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import React from 'react'
+import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
+import ReactPlayer from 'react-player';
+import Layout from '../components/layout'
 
-export default function Home() {
+export default function Home({homeData}) {
+
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+    <Layout title="Angel City Brigade | Home" description="Blue White &amp; Gold in my heart and soul">
+      <div className="row">
+        <div className="container clearTop home" style={{backgroundImage:`url(${homeData.bkg})`}}>
+          <div className="tint"></div>
+          <div className="row hero align-items-center">
+            <div className="col-12 col-md-10">
+              <h1>{homeData.heroTtl}</h1>
+              <a href="/about" className="btn btn-light">Join Us</a>
+            </div>
+          </div>
         </div>
-      </main>
 
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
+        <div className="row acb-about">
+          <div className="col-6 about-bkg d-none d-sm-block">
+
+          </div>
+          <div className="col-12 col-md-6 align-items-center about-copy">
+            <div className="row justify-content-center">
+              <div className="col-12 col-md-10">
+                <p>The Angel City Brigade was created to help establish a festive and vibrant atmosphere in the Dignity Health Sports Park. We are here to stand proudly for 90 minutes, sing our hearts out, and have a good time. Join us in the General Admission area inside the Dignity Health Sports Park and in the grass lawn outside the northwest gate before games! Help support the ACB and the Galaxy by chanting along with them during the next home match!</p>
+                <a href="/about" className="btn btn-dark"> More About Us</a>
+                </div>
+              </div>
+          </div>
+        </div>
+
+        <div className="container acb-video">
+          <ReactPlayer
+            className="home-video"
+            width="100%"
+            height="100%"
+            controls="false"
+            playsinline="true"
+            url="https://www.youtube.com/watch?v=YuSFHd5FRWU"
+            config={{
+              youtube:{
+                playerVars:{
+                  showinfo:0,
+                  modestbranding:0,
+                }
+              }
+            }}
+          />
+        </div>
+
+        <div className="row home-break">
+          <div className="col">
+            <h2 className="home-break">Blue, White, and Gold in my heart and soul, we’re Original Angelenos 💙⚪️💛</h2>
+          </div>
+        </div>
+
+        <div className="row boxes shop-wrap">
+          <div className="col-6 home-shop-bkg d-none d-sm-block"></div>
+          <div className="col-12 col-md-6 home-shop-copy align-items-center justify-content-center">
+            <a href="https://shop.angelcitybrigade.net">
+              <h3>Shop</h3>
+            </a>
+          </div>
+        </div>
+
+        <div className="row boxes vp-wrap">
+          <div className="col-12 col-md-6 home-vp-copy align-items-center justify-content-center">
+            <a href="/viewing-parties">
+              <h3>Viewing Parties</h3>
+            </a>
+          </div>
+          <div className="col-6 home-vp-bkg d-none d-sm-block"></div>
+        </div>
+
+      </div>
+    </Layout>
   )
+}
+
+
+export async function getStaticProps(){
+  const client = new ApolloClient({
+    uri: 'http://data.angelcitybrigade.net/graphql/',
+    cache: new InMemoryCache()
+  })
+  let {data} = await client.query({
+    query: gql`
+      {
+        heroBackgrounds {
+          edges {
+            node {
+              hbkgMeta {
+                heroPage
+                heroBackground {
+                  sourceUrl
+                }
+                heroTitle
+              }
+            }
+          }
+        }
+      }
+   `
+  })
+
+  data = data.heroBackgrounds.edges;
+  let dataCapture = {
+  }
+  let hd = data.map((data)=>{
+    if(data.node.hbkgMeta.heroPage === "Home"){
+      dataCapture.bkg = data.node.hbkgMeta.heroBackground.sourceUrl;
+      dataCapture.heroTtl = data.node.hbkgMeta.heroTitle;
+      console.log(dataCapture)
+    }
+  })
+  return{
+    props:{
+      homeData:dataCapture
+    }
+  }
 }
