@@ -1,6 +1,8 @@
 import Layout from '../components/layout';
 import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
 import parse from 'html-react-parser';
+import {motion} from 'framer-motion'
+
 
 export default function About({heroData, aboutData, bMembers}){
   console.log(aboutData,bMembers)
@@ -12,7 +14,25 @@ export default function About({heroData, aboutData, bMembers}){
           <div className="tint"></div>
           <div className="row hero hero-wrap  align-items-center" >
             <div className="col-12 col-md-10">
-              <h2>{heroData.heroTtl}</h2>
+              <motion.div
+                initial="hidden"
+                animate="visible"
+                variants={{
+                    hidden: {
+                      scale: .8,
+                      opacity: 0
+                    },
+                    visible: {
+                      scale: 1,
+                      opacity: 1,
+                      transition: {
+                        delay: .3
+                      }
+                    },
+                  }}
+              >
+                <h2>{heroData.heroTtl}</h2>
+              </motion.div>
             </div>
           </div>
         </div>

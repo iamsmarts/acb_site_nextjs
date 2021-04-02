@@ -1,6 +1,6 @@
 import Layout from '../components/layout'
 import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
-
+import {motion} from 'framer-motion'
 
 export default function Vp({heroData}){
   return(
@@ -10,8 +10,26 @@ export default function Vp({heroData}){
           <div className="tint"></div>
           <div className="row hero align-items-center vp-copy">
           <div className="col-12 col-md-10">
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              variants={{
+                  hidden: {
+                    scale: .8,
+                    opacity: 0
+                  },
+                  visible: {
+                    scale: 1,
+                    opacity: 1,
+                    transition: {
+                      delay: .3
+                    }
+                  },
+                }}
+            >
               <h2>{heroData.heroTtl}</h2>
-              </div>
+            </motion.div>
+          </div>
           </div>
         </div>
 

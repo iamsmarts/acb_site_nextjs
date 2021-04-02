@@ -9,6 +9,7 @@ import {
   AccordionItemPanel,
 } from 'react-accessible-accordion';
 import 'react-accessible-accordion/dist/fancy-example.css';
+import {motion} from 'framer-motion'
 
 export default function Faq({heroData, faqs}){
   console.log(faqs)
@@ -22,7 +23,25 @@ export default function Faq({heroData, faqs}){
           <div className="tint"></div>
           <div className="row hero faq-copy-wrap align-items-center">
             <div className="col-12 col-md-10">
-            <h2>{heroData.heroTtl}</h2>
+              <motion.div
+                initial="hidden"
+                animate="visible"
+                variants={{
+                    hidden: {
+                      scale: .8,
+                      opacity: 0
+                    },
+                    visible: {
+                      scale: 1,
+                      opacity: 1,
+                      transition: {
+                        delay: .3
+                      }
+                    },
+                  }}
+              >
+                <h2>{heroData.heroTtl}</h2>
+              </motion.div>
             </div>
           </div>
         </div>

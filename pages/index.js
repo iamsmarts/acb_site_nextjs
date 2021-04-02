@@ -1,6 +1,7 @@
 import React from 'react'
 import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
 import ReactPlayer from 'react-player';
+import {motion} from 'framer-motion'
 import Layout from '../components/layout'
 
 export default function Home({homeData}) {
@@ -12,8 +13,26 @@ export default function Home({homeData}) {
           <div className="tint"></div>
           <div className="row hero align-items-center">
             <div className="col-12 col-md-10">
-              <h1>{homeData.heroTtl}</h1>
-              <a href="/about" className="btn btn-light">Join Us</a>
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              variants={{
+                  hidden: {
+                    scale: .8,
+                    opacity: 0
+                  },
+                  visible: {
+                    scale: 1,
+                    opacity: 1,
+                    transition: {
+                      delay: .3
+                    }
+                  },
+                }}
+              >
+                <h1>{homeData.heroTtl}</h1>
+                <a href="/about" className="btn btn-light">Join Us</a>
+              </motion.div>
             </div>
           </div>
         </div>

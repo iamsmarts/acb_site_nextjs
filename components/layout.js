@@ -1,10 +1,12 @@
 import Head from 'next/head'
 import Header from './header'
 import Footer from './footer'
+
 import { Children } from 'react'
 
 
-const Layout = ({children, title, description }) =>(
+const Layout = ({children, title, description, router}) =>(
+
 <div className={`container`}>
   <Head>
     <meta
@@ -30,5 +32,6 @@ const Layout = ({children, title, description }) =>(
   {children}
   <Footer/>
 </div>
+
 )
 export default Layout;

@@ -2,7 +2,7 @@ import React from 'react'
 import parse from 'html-react-parser';
 import ReactPlayer from 'react-player'
 import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
-
+import {motion} from 'framer-motion'
 import Layout from '../components/layout'
 
 
@@ -15,8 +15,26 @@ export default function Chants({chantsData}){
           <div className="tint"></div>
           <div className="row hero chant-sheet align-items-center">
             <div className="col-12 col-md-10">
-            <h2>{chantsData.heroData.heroTtl}</h2>
-            <a href="http://data.angelcitybrigade.net/wp-content/uploads/2021/03/ACB121-Chants-2019.pdf" download className="btn btn-light"><i aria-hidden className="far fa-file-pdf"></i> Download the chant sheet</a>
+              <motion.div
+                initial="hidden"
+                animate="visible"
+                variants={{
+                    hidden: {
+                      scale: .8,
+                      opacity: 0
+                    },
+                    visible: {
+                      scale: 1,
+                      opacity: 1,
+                      transition: {
+                        delay: .3
+                      }
+                    },
+                  }}
+              >
+                <h2>{chantsData.heroData.heroTtl}</h2>
+                <a href="http://data.angelcitybrigade.net/wp-content/uploads/2021/03/ACB121-Chants-2019.pdf" download className="btn btn-light"><i aria-hidden className="far fa-file-pdf"></i> Download the chant sheet</a>
+              </motion.div>
             </div>
           </div>
         </div>
