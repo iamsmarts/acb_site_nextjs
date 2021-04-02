@@ -31,7 +31,7 @@ export default function Home({homeData}) {
                 }}
               >
                 <h1>{homeData.heroTtl}</h1>
-                <a href="/about" className="btn btn-light">Join Us</a>
+
               </motion.div>
             </div>
           </div>

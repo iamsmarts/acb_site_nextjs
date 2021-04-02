@@ -12,7 +12,6 @@ import 'react-accessible-accordion/dist/fancy-example.css';
 import {motion} from 'framer-motion'
 
 export default function Faq({heroData, faqs}){
-  console.log(faqs)
   return(
     <Layout title="Angel City Brigade | FAQ / Contact Us">
       <div className="row faq-wrap">

@@ -5,7 +5,6 @@ import {motion} from 'framer-motion'
 
 
 export default function About({heroData, aboutData, bMembers}){
-  console.log(aboutData,bMembers)
   return(
     <Layout title="Angle City Brigade | About ACB">
 
