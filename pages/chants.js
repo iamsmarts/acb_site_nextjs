@@ -21,20 +21,22 @@ export default function Chants({chantsData}){
           </div>
         </div>
 
-        <div  className="row chant-chants">
-          {chantsData.chantsInfo.map((chant, key)=>(
-            <div className="col-sm-12 col-md-6 chant" key={key}>
-              <div className="chant-wrap">
-                <h3>{chant.title}</h3>
-                {parse(chant.chantMeta.lyrics)}
-                <ReactPlayer
-                  className="reactPlayer"
-                  url={chant.chantMeta.url}
-                />
-              </div>
+        <div className="container">
+          <div  className="row chant-chants">
+            {chantsData.chantsInfo.map((chant, key)=>(
+              <div className="col-sm-12 col-md-6 chant" key={key}>
+                <div className="chant-wrap">
+                  <h3>{chant.title}</h3>
+                  {parse(chant.chantMeta.lyrics)}
+                  <ReactPlayer
+                    className="reactPlayer"
+                    url={chant.chantMeta.url}
+                  />
+                </div>
 
-            </div>
-          ))}
+              </div>
+            ))}
+          </div>
         </div>
 
       </div>

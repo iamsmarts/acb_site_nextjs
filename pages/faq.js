@@ -27,40 +27,46 @@ export default function Faq({heroData, faqs}){
           </div>
         </div>
 
-        <div className="row accordion-wrap">
-          <Accordion className="col-12">
-            <h3 className="text-center">FAQs</h3>
-          {faqs.map((faq, key)=>{
-            return(
-              <AccordionItem key={key}>
-              <AccordionItemHeading>
-                  <AccordionItemButton>
-                  {faq.title}
-                  </AccordionItemButton>
-              </AccordionItemHeading>
-              <AccordionItemPanel>
-              {parse(faq.copy)}
-              </AccordionItemPanel>
-              </AccordionItem>
-            )
-          })}
-          </Accordion>
+        <div className="container">
+          <div className="row accordion-wrap">
+            <Accordion className="col-12">
+              <h3 className="text-center">FAQs</h3>
+            {faqs.map((faq, key)=>{
+              return(
+                <AccordionItem key={key}>
+                <AccordionItemHeading>
+                    <AccordionItemButton>
+                    {faq.title}
+                    </AccordionItemButton>
+                </AccordionItemHeading>
+                <AccordionItemPanel>
+                {parse(faq.copy)}
+                </AccordionItemPanel>
+                </AccordionItem>
+              )
+            })}
+            </Accordion>
+          </div>
         </div>
-        <div className="row">
-            <div className="col-6">
+
+        <div className="container">
+          <div className="row">
+            <div className="col-6 d-none d-sm-block">
               <img className="img-fluid" src="http://data.angelcitybrigade.net/wp-content/uploads/2021/04/101200961_1455871071258939_1684034725609648687_n.jpg" alt=""/>
             </div>
-            <div className="col-6">
+            <div className="col-12 col-md-6 contact-us">
               <h3>Contact Us</h3>
               <p>
               <i className="fas fa-map-marker-alt"></i> PMB # 418 <br/>
                 335 E Albertoni St <br/>
                 Ste 200 <br/>
-                Carson, CA 90746
+                Carson, CA 90746 <br/>
+                <a href="mailto:info@angelcitybrigade.net">info@angelcitybrigade.net</a>
               </p>
-              <p><a href="mailto:info@angelcitybrigade.net">info@angelcitybrigade.net</a> </p>
             </div>
           </div>
+        </div>
+
       </div>
     </Layout>
 

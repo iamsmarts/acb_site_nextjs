@@ -7,6 +7,10 @@
   max-width: none;
   z-index: 11;
   background: rgba(0, 0, 0, 0.7);
+  padding-right: var(--bs-gutter-x, 0.75rem);
+  padding-left: var(--bs-gutter-x, 0.75rem);
+  margin-right: auto;
+  margin-left: auto;
 }
 .header {
   // height: 100px;

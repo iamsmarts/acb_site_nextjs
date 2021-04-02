@@ -24,11 +24,6 @@ a {
 * {
   box-sizing: border-box;
 }
-.header {
-  margin-bottom: 20px;
-  padding: 10px 0px;
-  font-weight: 400;
-}
 h1,
 h2,
 h3,
@@ -64,4 +59,12 @@ h4 {
   left: 0;
   right: 0;
   z-index: 5;
+}
+.home h1,
+.chants-containter h2,
+.vp-copy h2,
+.about-hero h2 {
+  font-size: 3rem;
+}
+@media only screen and (max-width: 600px) {
 }

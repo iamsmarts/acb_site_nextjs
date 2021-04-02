@@ -95,3 +95,62 @@
   font-size: 1.8rem;
   text-shadow: none;
 }
+@media only screen and (max-width: 600px) {
+  .acb-about {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    min-height: auto;
+  }
+  .home .hero {
+    margin-left: 0px;
+  }
+  .copy-wrap {
+    padding: 0 15px;
+    text-align: justify;
+  }
+  .boxes-conainer {
+    .shop-wrap,
+    .vp-wrap {
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+      min-height: auto;
+    }
+    .shop-wrap {
+      background-image: url("http://data.angelcitybrigade.net/wp-content/uploads/2021/04/shop.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    .vp-wrap {
+      background-image: url("http://data.angelcitybrigade.net/wp-content/uploads/2021/04/vp.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    .shop-wrap .home-shop-copy,
+    .vp-wrap .home-vp-copy {
+      background: none;
+      a {
+        padding: 1rem;
+        border-radius: 10px;
+        color: #f2f4f3;
+        background-color: #00245d;
+        border-color: #003790;
+        text-transform: uppercase;
+        text-align: center;
+        text-decoration: none;
+        vertical-align: middle;
+        cursor: pointer;
+        padding: 0.375rem 0.75rem;
+        font-size: 1rem;
+        border-radius: 0.25rem;
+        h3 {
+          margin: 0px;
+        }
+      }
+    }
+    .vp-wrap .home-vp-copy {
+      a {
+        max-width: 50%;
+      }
+    }
+  }
+}

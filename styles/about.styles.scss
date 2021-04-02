@@ -35,3 +35,10 @@ h3 {
     text-align: center;
   }
 }
+@media only screen and (max-width: 600px) {
+  .about-hero {
+    .hero-wrap {
+      margin-left: auto;
+    }
+  }
+}
