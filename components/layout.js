@@ -30,7 +30,6 @@ const Layout = ({children, title, description, router}) =>(
     <meta name="twitter:site" content="@acbrigade" />
     <meta name="twitter:image" content="http://data.angelcitybrigade.net/wp-content/uploads/2021/03/IMG_2416-scaled.jpg" />
     <meta name="twitter:creator" content="@acbrigade" />
-    <link rel="icon" href="/favicon.ico" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -40,6 +39,7 @@ const Layout = ({children, title, description, router}) =>(
     <script
       src="https://kit.fontawesome.com/90ad3ade8e.js" crossOrigin="anonymous">
     </script>
+    <link rel="shortcut icon" href="/favicon_updated.ico" />
   </Head>
   <Header/>
   {children}
