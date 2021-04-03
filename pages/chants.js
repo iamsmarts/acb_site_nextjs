@@ -38,7 +38,14 @@ export default function Chants({chantsData}){
             </div>
           </div>
         </div>
-
+        <div className="container">
+          <div className="row">
+            <div className="col text-center">
+              <p><strong> Chant with us! Spend some time learning these chants and songs for the best game day experience! <br/>
+              Join over 2300 Galaxy supporters across the whole Victoria Block as we cheer on the LA Galaxy. </strong></p>
+            </div>
+          </div>
+        </div>
         <div className="container">
           <div  className="row chant-chants">
             {chantsData.chantsInfo.map((chant, key)=>(
