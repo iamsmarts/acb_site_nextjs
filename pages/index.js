@@ -7,12 +7,10 @@ import Link from 'next/link'
 import parse from 'html-react-parser';
 
 export default function Home({homeData, recentNews, homeInfo}) {
-console.log(homeInfo.homeMeta.homeTextBreak)
-
   return (
     <Layout title="Angel City Brigade | Home" description="Blue White &amp; Gold in my heart and soul">
       <div className="row">
-        <div className="container clearTop home" style={{backgroundImage:`url(${homeData.bkg})`}}>
+        <div className="container clearTop home" style={{backgroundImage:`url(${homeData.bkg})` }}>
           <div className="tint"></div>
           <div className="row hero align-items-center">
             <div className="col-12 col-md-10">
@@ -162,7 +160,7 @@ export async function getStaticProps(){
             }
           }
         }
-        recentNewss {
+        recentNewss (first:3) {
           nodes {
             title
             recentNewsMeta {
