@@ -39,6 +39,7 @@ class HeaderClass extends Component {
           <div className=" nav-item">
             <Link href='/'> Home</Link></div>
           <div className=" nav-item"><Link href="https://shop.angelcitybrigade.net" rel="noreferrer" target="_blank"> Shop </Link></div>
+          <div className=" nav-item"> <Link href="/recent-news"> Recent News</Link></div>
           <div className=" nav-item"> <Link href="/chants"> Chants</Link></div>
           <div className="-md-auto nav-item"> <Link href="/viewing-parties"> Viewing Parties</Link></div>
           <div className=" nav-item"><Link href="/about"> About Us</Link></div>

@@ -1,8 +1,9 @@
 import Layout from '../components/layout'
 import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
-import {motion} from 'framer-motion'
+import {motion} from 'framer-motion';
+import parse from 'html-react-parser';
 
-export default function Vp({heroData}){
+export default function Vp({heroData,vpInfo}){
   return(
     <Layout title="Angle City Brigade | Viewing Parties">
       <div className="row vp-wrap">
@@ -36,10 +37,10 @@ export default function Vp({heroData}){
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-10 col-md-6 text-center">
-              <p><strong>Please check back for 2021 Viewing parties and official bar partners throughout Los Angeles county and beyond. Below is a map of 2020 partners.</strong></p>
+             {parse(vpInfo.vpMetas.vpCopy)}
             </div>
             <div className="col-12">
-              <iframe className="vp-map" title="ACB Viewing Party Map" src="https://www.google.com/maps/d/embed?mid=1zjOuFGdO-6GL1QGfcb_0hlPJuu0BAbri" width="640" height="480"></iframe>
+              <iframe className="vp-map" title="ACB Viewing Party Map" src={vpInfo.vpMetas.vpMapsUrl} width="640" height="480"></iframe>
             </div>
           </div>
         </div>
@@ -69,9 +70,17 @@ export async function getStaticProps(){
           }
         }
       }
+      viewingParties {
+        nodes {
+          vpMetas {
+            vpCopy
+            vpMapsUrl
+          }
+        }
+      }
     }
     `})
-
+    let vpInfo = data.viewingParties.nodes[0]
     let heroData = {
       bkg:'',
       heroTtl:''
@@ -85,7 +94,8 @@ export async function getStaticProps(){
 
   return{
     props:{
-      heroData
+      heroData,
+      vpInfo
     }
   }
 }

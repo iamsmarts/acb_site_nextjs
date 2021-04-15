@@ -37,6 +37,8 @@
 .acb-video {
   position: relative;
   padding-bottom: 56.25%; /* 16:9 */
+  margin-bottom: 2rem;
+  margin-top: 2rem;
   .home-video {
     position: absolute;
     top: 0;
@@ -95,7 +97,55 @@
   font-size: 1.8rem;
   text-shadow: none;
 }
+.carousel-wrap {
+  min-height: 40vh;
+  display: flex;
+  align-content: stretch;
+  .row {
+    width: 103%;
+    overflow: hidden;
+    .rn-block,
+    .rn-break {
+      background-size: cover;
+      position: relative;
+      color: #f2f4f3;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-content: center;
+      min-height: 470px;
+      .tint {
+        background: rgba(0, 36, 93, 0.9);
+      }
+      h3 {
+        color: #00245d;
+      }
+      h4,
+      p {
+        z-index: 10;
+        position: relative;
+        margin-bottom: 0px;
+        font-weight: bold;
+        a:hover {
+          color: #ffd200;
+        }
+      }
+    }
+    .rn-block.alt {
+      .tint {
+        background-color: rgba(255, 255, 255, 0.9);
+      }
+      color: #00245d;
+    }
+  }
+}
+
 @media only screen and (max-width: 600px) {
+  .carousel-wrap .row .rn-block.something .tint {
+    .tint {
+      background-color: rgba(0, 36, 93, 0.9) !important;
+    }
+  }
   .acb-about {
     padding-top: 4rem;
     padding-bottom: 4rem;
@@ -151,6 +201,30 @@
     .vp-wrap .home-vp-copy {
       a {
         max-width: 50%;
+      }
+    }
+  }
+  .carousel-wrap {
+    .rn-wrap {
+      width: 110%;
+      .rn-break {
+        max-height: 250px !important;
+        min-height: 200px;
+        border-bottom: 2px solid #ffd200;
+      }
+      .rn-block {
+        max-height: 250px !important;
+        min-height: 200px;
+        border-bottom: 2px solid #ffd200;
+        .tint {
+          background-color: rgba(0, 36, 93, 0.9) !important;
+        }
+      }
+      .alt {
+        h4,
+        p {
+          color: #f2f4f3;
+        }
       }
     }
   }

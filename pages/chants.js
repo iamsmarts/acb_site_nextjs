@@ -6,7 +6,7 @@ import {motion} from 'framer-motion'
 import Layout from '../components/layout'
 
 
-export default function Chants({chantsData}){
+export default function Chants({chantsData, meta}){
   return (
     <Layout title="Angel City Brigade | Chants">
       <div className="row">
@@ -33,16 +33,15 @@ export default function Chants({chantsData}){
                   }}
               >
                 <h2>{chantsData.heroData.heroTtl}</h2>
-                <a href="http://data.angelcitybrigade.net/wp-content/uploads/2021/03/ACB121-Chants-2019.pdf" download className="btn btn-light"><i aria-hidden className="far fa-file-pdf"></i> Download the chant sheet</a>
+                <a href={meta.chantSheetUrl} download className="btn btn-light"><i aria-hidden className="far fa-file-pdf"></i> Download the chant sheet</a>
               </motion.div>
             </div>
           </div>
         </div>
         <div className="container">
           <div className="row">
-            <div className="col text-center">
-              <p><strong> Chant with us! Spend some time learning these chants and songs for the best game day experience! <br/>
-              Join over 2300 Galaxy supporters across the whole Victoria Block as we cheer on the LA Galaxy. </strong></p>
+            <div className="col text-center chant-copy">
+              {parse(meta.chantCopy)}
             </div>
           </div>
         </div>
@@ -102,8 +101,17 @@ export async function getStaticProps(){
           }
         }
       }
+      chantInfos {
+        nodes {
+          chantPageInfo {
+            chantCopy
+            chantSheetUrl
+          }
+        }
+      }
     }
     `})
+    let meta = data.chantInfos.nodes[0].chantPageInfo;
     let chantsInfo = []
     data.chants.edges.map((edges)=>{
       chantsInfo = [...chantsInfo, edges.node]
@@ -126,7 +134,8 @@ export async function getStaticProps(){
       chantsData:{
         chantsInfo,
         heroData
-      }
+      },
+      meta
     }
   }
 }

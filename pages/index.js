@@ -3,8 +3,11 @@ import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
 import ReactPlayer from 'react-player';
 import {motion} from 'framer-motion'
 import Layout from '../components/layout'
+import Link from 'next/link'
+import parse from 'html-react-parser';
 
-export default function Home({homeData}) {
+export default function Home({homeData, recentNews, homeInfo}) {
+console.log(homeInfo.homeMeta.homeTextBreak)
 
   return (
     <Layout title="Angel City Brigade | Home" description="Blue White &amp; Gold in my heart and soul">
@@ -45,7 +48,7 @@ export default function Home({homeData}) {
           <div className="col-12 col-md-6 align-items-center about-copy">
             <div className="row justify-content-center">
               <div className="col-12 col-md-10 copy-wrap">
-                <p>The Angel City Brigade was created to help establish a festive and vibrant atmosphere in the Dignity Health Sports Park. We are here to stand proudly for 90 minutes, sing our hearts out, and have a good time. Join us in the General Admission area inside the Dignity Health Sports Park and in the grass lawn outside the northwest gate before games! Help support the ACB and the Galaxy by chanting along with them during the next home match!</p>
+                {parse(homeInfo.homeMeta.homeAboutSectionCopy)}
                 <a href="/about" className="btn btn-dark"> More About Us</a>
                 </div>
               </div>
@@ -58,9 +61,9 @@ export default function Home({homeData}) {
             className="home-video"
             width="100%"
             height="100%"
-            controls="false"
-            playsinline="true"
-            url="https://www.youtube.com/watch?v=YuSFHd5FRWU"
+            controls={false}
+            playsinline={true}
+            url={homeInfo.homeMeta.homeVideoUrl}
             config={{
               youtube:{
                 playerVars:{
@@ -72,10 +75,29 @@ export default function Home({homeData}) {
           />
         </div>
 
+        <div className="container carousel-wrap">
+          <div className="row rn-wrap">
+            <div className="col-12 rn-break col-md-6 align-items-center justify-content-center"><h3>Recent News</h3></div>
+            {recentNews.map((news, key)=>{
+              return (
+                  <div
+                    className={`col-12 col-md-6 rn-block align-items-center justify-content-center ${(key === 2) ? 'alt something' : ''}`}
+                    style={{backgroundImage:`url(${news.recentNewsMeta.featuredImage.sourceUrl})`}}
+                    key={key}
+                  >
+                    <div className="tint"></div>
+                    <h4>{news.title}</h4>
+                    <p><Link href="/recent-news">Read More</Link></p>
+                  </div>)
+            })}
+          </div>
+
+        </div>
+
         <div className="container">
           <div className="row home-break">
             <div className="col">
-              <h2 className="home-break">Blue, White, and Gold in my heart and soul, we’re Original Angelenos 💙⚪️💛</h2>
+              {parse(homeInfo.homeMeta.homeTextBreak)}
             </div>
           </div>
         </div>
@@ -128,10 +150,34 @@ export async function getStaticProps(){
             }
           }
         }
+        homeInfos {
+          nodes {
+            homeMeta {
+              homeTextBreak
+              homeVideoUrl
+              homeAboutSectionCopy
+              homeAboutImage {
+                sourceUrl
+              }
+            }
+          }
+        }
+        recentNewss {
+          nodes {
+            title
+            recentNewsMeta {
+              copy
+              featuredImage {
+                sourceUrl
+              }
+            }
+          }
+        }
       }
    `
   })
-
+  let recentNews = data.recentNewss.nodes
+  let homeInfo = data.homeInfos.nodes[0]
   data = data.heroBackgrounds.edges;
   let dataCapture = {
   }
@@ -143,7 +189,9 @@ export async function getStaticProps(){
   })
   return{
     props:{
-      homeData:dataCapture
+      homeData:dataCapture,
+      recentNews:recentNews,
+      homeInfo:homeInfo
     }
   }
 }

@@ -102,7 +102,7 @@ export async function getStaticProps(){
       }
     }
     `})
-    console.log(data.boardMembers.edges)
+
     let bMembers =[]
     data.boardMembers.edges.map((edge, i)=>{
       let member = {

@@ -1,0 +1,23 @@
+.rn-hero {
+  background-position: bottom;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 40vh;
+  display: flex;
+  margin-bottom: 2rem;
+}
+.news-break {
+  margin: 1rem 0;
+}
+.rn-header {
+  margin-bottom: 0;
+  color: #00245d;
+}
+.rn-copy {
+  margin-top: 2rem;
+}
+@media only screen and (max-width: 600px) {
+  .rn-image {
+    margin-bottom: 1rem;
+  }
+}
