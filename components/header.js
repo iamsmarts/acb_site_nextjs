@@ -16,9 +16,9 @@ class HeaderClass extends Component {
     return (
       <div className="container header-wrap">
         <div className="row header">
-          <div className="col-6 align-self-start align-items-center logo">
+          <div className="col-6 121 align-self-start align-items-center logo">
             <Link href="/">
-              <img src="http://data.angelcitybrigade.net/wp-content/uploads/2021/04/logo.png" alt=""/>
+              <img src="https://data.angelcitybrigade.net/wp-content/uploads/2021/04/logo.png" alt=""/>
             </Link>
           </div>
           <div className="col-6 align-self-end nav">
