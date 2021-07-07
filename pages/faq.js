@@ -70,7 +70,7 @@ export default function Faq({heroData, faqs}){
         <div className="container">
           <div className="row">
             <div className="col-6 d-none d-sm-block">
-              <img className="img-fluid" src="http://data.angelcitybrigade.net/wp-content/uploads/2021/04/101200961_1455871071258939_1684034725609648687_n.jpg" alt=""/>
+              <img className="img-fluid" src="https://data.angelcitybrigade.net/wp-content/uploads/2021/04/101200961_1455871071258939_1684034725609648687_n.jpg" alt=""/>
             </div>
             <div className="col-12 col-md-6 contact-us">
               <h3>Contact Us</h3>
@@ -93,7 +93,7 @@ export default function Faq({heroData, faqs}){
 
 export async function getStaticProps(){
   const client = new ApolloClient({
-    uri: 'http://data.angelcitybrigade.net/graphql/',
+    uri: 'https://data.angelcitybrigade.net/graphql/',
     cache: new InMemoryCache()
   })
   let {data} = await client.query({

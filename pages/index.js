@@ -109,7 +109,7 @@ export default function Home({homeData}) {
 
 export async function getStaticProps(){
   const client = new ApolloClient({
-    uri: 'http://data.angelcitybrigade.net/graphql/',
+    uri: 'https://data.angelcitybrigade.net/graphql/',
     cache: new InMemoryCache()
   })
   let {data} = await client.query({
