@@ -71,7 +71,7 @@ export default function Chants({chantsData, meta}){
 
 export async function getStaticProps(){
   const client = new ApolloClient({
-    uri: 'http://data.angelcitybrigade.net/graphql/',
+    uri: 'https://b121gade.com/graphql/',
     cache: new InMemoryCache()
   })
   let {data} = await client.query({
