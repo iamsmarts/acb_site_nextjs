@@ -50,7 +50,7 @@ export default function Vp({heroData}){
 
 export async function getStaticProps(){
   const client = new ApolloClient({
-    uri: 'https://data.angelcitybrigade.net/graphql/',
+    uri: 'https://b121gade.com/graphql/',
     cache: new InMemoryCache()
   })
   let {data} = await client.query({

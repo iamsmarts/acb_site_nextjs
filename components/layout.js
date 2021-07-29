@@ -28,7 +28,7 @@ const Layout = ({children, title, description, router}) =>(
     <meta name="twitter:description" content="ACB are LA Galaxy's rowdiest and loudest supporter group. Join us in section 121 | 122 and make your voice heard and show support for MLS' biggest club." />
     <meta name="twitter:title" content="Angel City Brigade - Los Angeles Galaxy Supporters" />
     <meta name="twitter:site" content="@acbrigade" />
-    <meta name="twitter:image" content="https://data.angelcitybrigade.net/wp-content/uploads/2021/03/IMG_2416-scaled.jpg" />
+    <meta name="twitter:image" content="https://b121gade.com/wp-content/uploads/2021/03/IMG_2416-scaled.jpg" />
     <meta name="twitter:creator" content="@acbrigade" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"

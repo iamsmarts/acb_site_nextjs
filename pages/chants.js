@@ -33,7 +33,7 @@ export default function Chants({chantsData}){
                   }}
               >
                 <h2>{chantsData.heroData.heroTtl}</h2>
-                <a href="https://data.angelcitybrigade.net/wp-content/uploads/2021/03/ACB121-Chants-2019.pdf" download className="btn btn-light"><i aria-hidden className="far fa-file-pdf"></i> Download the chant sheet</a>
+                <a href="https://b121gade.com/wp-content/uploads/2021/03/ACB121-Chants-2019.pdf" download className="btn btn-light"><i aria-hidden className="far fa-file-pdf"></i> Download the chant sheet</a>
               </motion.div>
             </div>
           </div>
@@ -72,7 +72,7 @@ export default function Chants({chantsData}){
 
 export async function getStaticProps(){
   const client = new ApolloClient({
-    uri: 'https://data.angelcitybrigade.net/graphql/',
+    uri: 'https://b121gade.com/graphql/',
     cache: new InMemoryCache()
   })
   let {data} = await client.query({
