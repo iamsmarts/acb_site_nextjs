@@ -79,7 +79,7 @@ export default function Faq({heroData, faqs}){
                 335 E Albertoni St <br/>
                 Ste 200 <br/>
                 Carson, CA 90746 <br/>
-                <a href="mailto:info@angelcitybrigade.net">info@angelcitybrigade.net</a>
+                <a href="mailto:info@acb.la">info@acb.la</a>
               </p>
             </div>
           </div>
