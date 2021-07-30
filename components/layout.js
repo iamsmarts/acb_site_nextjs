@@ -26,7 +26,7 @@ const Layout = ({children, title, description, router}) =>(
     <meta property="og:site_name" content="ANGEL CITY BRIGADE | ACB.LA"/>
     <meta property="og:title" content="Angel City Brigade" />
     <meta property="og:description" content="ACB - LA Galaxy's largest supporter group, stand with us in 121 and 122 support 90 minutes+ " />
-    <meta property="og:image" content="/acb-stands-scarves.jpg" />
+    <meta property="og:image" content="/acb-stands-scarves-update.jpg" />
     <meta property="og:image:alt" content="ACB in action, scarves up!" />
 
     <meta name="twitter:card" content="summary_large_image" />
@@ -35,7 +35,7 @@ const Layout = ({children, title, description, router}) =>(
     <meta property="og:url" content="https://acb.la" />
     <meta property="og:title" content="121 Angel City Brigade 122" />
     <meta property="og:description" content="ACB - LA Galaxy's largest supporter group, stand with us in 121 and 122 support 90 minutes+ " />
-    <meta property="og:image" content="/acb-stands-scarves.jpg" />
+    <meta property="og:image" content="/acb-stands-scarves-update.jpg" />
 
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity= "sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossOrigin="anonymous" />
