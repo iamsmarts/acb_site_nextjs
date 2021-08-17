@@ -33,11 +33,7 @@ export default function Chants({chantsData, meta}){
                   }}
               >
                 <h2>{chantsData.heroData.heroTtl}</h2>
-<<<<<<< HEAD
                 <a href={meta.chantSheetUrl} download className="btn btn-light"><i aria-hidden className="far fa-file-pdf"></i> Download the chant sheet</a>
-=======
-                <a href="https://b121gade.com/wp-content/uploads/2021/03/ACB121-Chants-2019.pdf" download className="btn btn-light"><i aria-hidden className="far fa-file-pdf"></i> Download the chant sheet</a>
->>>>>>> f6fdb3e3b65d70333da32ce8c0f966c2c0bf656a
               </motion.div>
             </div>
           </div>
