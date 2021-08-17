@@ -104,7 +104,7 @@ export default function Home({homeData, recentNews, homeInfo}) {
           <div className="row boxes shop-wrap">
             <div className="col-6 home-shop-bkg d-none d-sm-block"></div>
             <div className="col-12 col-md-6 home-shop-copy align-items-center justify-content-center">
-              <a href="https://shop.angelcitybrigade.net">
+              <a href="https://shop.acb.la">
                 <h3>Shop</h3>
               </a>
             </div>
