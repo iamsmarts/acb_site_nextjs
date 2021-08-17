@@ -3,7 +3,7 @@ import parse from 'html-react-parser';
 import Image from 'next/image'
 export default function Protest(){
   return(
-    <Slayout title="Angle City Brigade | About ACB">
+    <Slayout title="SUPPORTING L.A. IS NOT A CRIME">
     <main role="main" className="inner cover statement">
         <Image src="/vblock.png" alt="Victoria Block Logo"width="150" height="117" layout="intrinsic" />
         <p>August 17, 2021</p>
