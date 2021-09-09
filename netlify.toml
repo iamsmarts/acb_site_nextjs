@@ -1,1 +1,6 @@
+[[redirects]]
+  from = "/afja"
+  to = "https://www.lagalaxy.com/afja"
+  status = 301
+  force = true
 
